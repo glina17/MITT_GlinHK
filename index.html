@@ -15,24 +15,26 @@
 </style>
   <body>
     <div class="container">
+      <form name="login">
       <div class="row">
        <h1><i class="fa fa-lock" aria-hidden="true"></i>Halaman Login</h1>
      </div>
      <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label ">Username</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+      <input type="text" class="form-control" name="username" id="exampleFormControlInput1" placeholder="Username">
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label ">Password</label>
-      <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+      <input type="password" class="form-control" name="password" id="exampleFormControlInput1" placeholder="Password">
     </div>
     <center>
-      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Login</button>
+      <button class="btn btn-success input-button" type="button" onClick="Login()">Masuk</button>
     </center>
     <div style="border:1px solid black;height:1px;width:370px; text-align: center;">
       <br>
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="glyphicon glyphicon-off"></span> Registrasi</button>
     </div>
+  </form>
   </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -81,6 +83,23 @@
             $("#to").datepicker( "option", "minDate", minValue );
         })
     });
+  </script>
+  <script type="text/javascript">
+
+        // Login System Logic
+        function Login() {
+            var done = 0;
+            var username = document.login.username.value;
+            username = username.toLowerCase();
+            var password = document.login.password.value;
+            password = password.toLowerCase();
+            if (username == "admin" && password == "admin") {
+                window.location.href = "admin/index.html";
+            } else
+                if (done == 0) {
+                    alert("Username/Password yang anda masukan salah!");
+                }
+        }
   </script>
 </body>
 </html>
