@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halaman Login</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="asset/css/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="asset/css/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="asset/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"> 
+</head>
+<body class="hold-transition login-page">
+  <form name="login">
+    <div class="login-box">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a href="#" class="h1"><b>Admin</b>LTE</a>
+        </div>
+        <div class="card-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+          <div class="input-group mb-3">
+            <input type="text" name="username" class="form-control" placeholder="username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" name="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          <!-- <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div> -->
+          <!-- /.col -->
+          <div class="col-4">
+            <button class="btn btn-success input-button" type="button" onClick="Login()">Masuk</button>
+          </div>
+          <!-- /.col -->
+        </div>
+        <div class="social-auth-links text-center mt-2 mb-3">
+         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+          Launch Default Modal
+        </button>
+        <!-- modal Registasi -->
+        <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Default Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="formGroupExampleInput" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                  <label for="formGroupExampleInput2" class="form-label">Password</label>
+                  <input type="Password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                  <textarea class="form-control" id="Alamat" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Tanggal Lahir</label>
+                  <input class="form-control" type="text" name="tanggal" id="tanggal" data-provide="datepicker">
+                </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- Modal Tutup -->
+      </div>
+      <!-- /.social-auth-links -->
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+<!-- /.login-box -->
+</form>
+<!-- jQuery -->
+<script src="asset/js/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="asset/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="asset/js/adminlte.min.js"></script>
+<script src="asset/js/toastr/toastr.min.js"></script>
+<script src="asset/js/demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" ></script>
+<script type="text/javascript">
+
+        // Login System Logic
+        function Login() {
+          var done = 0;
+          var username = document.login.username.value;
+          username = username.toLowerCase();
+          var password = document.login.password.value;
+          password = password.toLowerCase();
+          if (username == "admin" && password == "admin"){
+            window.location.href = "admin/index.html";
+          } else
+          if (done == 0) {
+            alert("Username/Password yang anda masukan salah!");
+          }
+        }
+      </script>
+      <script type="text/javascript">
+   $(function(){
+    $("#to").datepicker({ dateFormat: 'yy-mm-dd' });
+    $("#from").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
+      var minValue = $(this).val();
+      minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+      minValue.setDate(minValue.getDate()+1);
+      $("#to").datepicker( "option", "minDate", minValue );
+    })
+  });
+</script>
+    </body>
+    </html>
